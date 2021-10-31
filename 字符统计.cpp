@@ -1,22 +1,29 @@
-#include<stdio.h>
+#include <stdio.h>
 int main()
 {
-	int letter = 0,blank = 0,other = 0,digit = 0;
-	int i;
+    int blank,digit,other;
 	char ch;
-	for(i=1;i<=10;i++){
-		ch=getchar();//一次只能请输入一个字符
-		if((ch<='z'&&ch>='a')||(ch<='Z'&&ch>='A')){
-			letter++;
-		} 
-		else if((ch==' ')||(ch=='\n')){
-			blank++;
-		}
-		else if(ch>='0'&&ch<='9'){
-			digit++;
-		}else
-		other++;
+    blank=digit=other =0;
+    ch=getchar();
+    while(ch!='\n'){
+        ch=getchar();
+    switch(ch){
+        case ' ':
+            blank++;
+            break;
+        case '0':case '1':
+            case '3':case '4':
+             case '5':case '6':
+             case '7':case '8': case '9':
+            digit++;
+            break;
+        default:
+            other++;
+            break;
+        
+    }
+    }
+	printf("blank = %d,digit = %d,other = %d",blank,digit,other);
+    return 0;
 	}
-printf("%d %d %d %d",letter,blank,digit,other);
-return 0;
-}
+	
